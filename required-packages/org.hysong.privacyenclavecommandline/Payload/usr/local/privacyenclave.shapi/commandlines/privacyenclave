@@ -1,0 +1,89 @@
+#!/bin/bash
+RED='\033[0;31m'
+GRN='\033[0;32m'
+NC='\033[0m'
+if [[ -z "$1" ]]; then
+	echo -e "${RED}[Error]${NC} Argument is empty."
+	exit 1
+elif [[ "$1" == "create" ]]; then
+	echo "Working: Creating Protected VFS Storage"
+	# Extra Args:
+	# Arg2 = Location
+	# Arg3 = Name
+	# Arg4 = Size
+	# Arg5 = Filesystem
+	# Arg6 = Password
+	if [[ -z "$2" ]] || [[ -z "$3" ]] || [[ -z "$4" ]] || [[ -z "$5" ]] || [[ -z "$6" ]]; then
+		echo "Missing Arguments!"
+		echo "Usage:"
+		echo "privacyenclave create \"location\" \"name\" \"size\" \"filesystem\" \"password\""
+		exit 1
+	fi
+	sudo /usr/local/privacyenclave.shapi/commandlines/createvfs "$2" "$3" "$4" "$5" "$6"
+	if [[ $? == 0 ]]; then
+		echo -e "${GRN}[Success]${NC} Done."
+		exit 0
+	else
+		echo -e "${RED}[Error]${NC} Exited non-zero."
+		exit 1
+	fi
+elif [[ "$1" == "unlock" ]]; then
+	echo "Working: Unlocking Protected VFS Storage"
+	# Extra Args:
+	# Arg2 = Location
+	# Arg3 = Password
+	# Arg4 = Disable using Nemesis API
+	if [[ -z "$2" ]] || [[ -z "$3" ]]; then
+		echo "Missing Arguments!"
+		echo "Usage:"
+		echo "privacyenclave unlock \"location\" \"password\""
+		exit 1
+	fi
+	if [[ ! -d /Library/Application Support/LanSchool ]]; then
+		echo "LanSchool not present. Skipping Nemesis process..."
+	elif [[ $4 == "--no-nemesis" ]]; then
+		echo "Skipping Nemesis process..."
+	else
+		echo "Running Nemesis..."
+		# RUN NEMESIS
+	fi
+	sudo /usr/local/privacyenclave.shapi/commandlines/mountvfs "$3" "$2"
+	if [[ $? == 0 ]]; then
+		echo -e "${GRN}[Success]${NC} Done."
+		exit 0
+	else
+		echo -e "${RED}[Error]${NC} Exited non-zero."
+		exit 1
+	fi
+elif [[ "$1" == "lock" ]]; then
+	echo "Working: Locking Protected VFS Storage"
+	# Extra Args:
+	# Arg2 = Location
+	# Arg3 = Disable using Nemesis API
+	if [[ -z "$2" ]]; then
+		echo "Missing Arguments!"
+		echo "Usage:"
+		echo "privacyenclave lock \"location\""
+		exit 1
+	fi
+	if [[ ! -d /Library/Application Support/Nemesis_protected_LanSchool ]]; then
+		echo "LanSchool not present. Skipping Nemesis process..."
+	elif [[ $3 == "--no-nemesis" ]]; then
+		echo "Skipping Nemesis process..."
+	else
+		echo "Running Nemesis..."
+		# RUN NEMESIS
+	fi
+	hdiutil detach "$2" -force >/dev/null
+	if [[ $? == 0 ]]; then
+		echo -e "${GRN}[Success]${NC} Done."
+		exit 0
+	else
+		echo -e "${RED}[Error]${NC} Exited non-zero."
+		exit 1
+	fi
+else
+	echo -e "${RED}[Error]${NC} No such argument."
+	exit 1
+fi
+exit $EXITCODE

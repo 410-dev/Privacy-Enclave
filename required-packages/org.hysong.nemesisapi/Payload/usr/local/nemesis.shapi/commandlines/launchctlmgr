@@ -1,0 +1,28 @@
+#!/bin/bash
+RED='\033[0;31m'
+GRN='\033[0;32m'
+NC='\033[0m'
+if [[ -z $1 ]]; then
+	echo -e "[NEMESIS] ${RED}Error:${NC} No command given.${NC}"
+	exit 1
+fi
+if [[ $1 == "unload" ]]; then
+	echo -e "[NEMESIS] Unloading: Launch Daemon"
+	launchctl unload -w /Library/LaunchDaemons/com.lanschool.lsdaemon.plist
+	EXITCODE=$(echo $?)
+#	echo -e "[NEMESIS] Deleting..."
+#	sudo rm /Library/LaunchDaemons/com.lanschool.lsdaemon.plist
+#	sudo rm /Library/LaunchAgents/com.lanschool.student.plist
+#	sudo rm /Library/LaunchAgents/com.lanschool.lsutil.plist
+	echo -e "[NEMESIS] ${GRN}Done.${NC} Exiting launchctlmgr...${NC}"
+	exit $EXITCODE
+elif [[ $1 == "load" ]]; then
+	echo -e "[NEMESIS] Loading: Launch Daemon"
+	launchctl load -w /Library/LaunchDaemons/com.lanschool.lsdaemon.plist
+	EXITCODE=$(echo $?)
+	echo -e "[NEMESIS] ${GRN}Done.${NC} Exiting launchctlmgr...${NC}"
+	exit $EXITCODE
+else
+	echo -e "[NEMESIS] ${RED}Error:${NC} No such command.${NC}"
+	exit 2
+fi

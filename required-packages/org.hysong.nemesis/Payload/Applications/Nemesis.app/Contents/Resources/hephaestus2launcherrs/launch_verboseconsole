@@ -1,0 +1,6 @@
+#!/bin/bash
+clear
+BINPATH=$(<~/Documents/heph_bin_path)
+echo "[LAUNCHER] Your login password is required in order to proceed."
+echo "[LAUNCHER] Launching Hephaestus..."
+sudo "$BINPATH"

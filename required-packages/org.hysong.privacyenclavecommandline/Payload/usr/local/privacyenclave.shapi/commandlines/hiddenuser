@@ -1,0 +1,27 @@
+#!/bin/bash
+RED='\033[0;31m'
+GRN='\033[0;32m'
+NC='\033[0m'
+if [[ -z "$1" ]]; then
+	echo -e "${RED}Error:${NC} Argument is empty."
+	exit 1
+elif [[ -z "$2" ]]; then
+	echo -e "${RED}Error:${NC} Path field is empty."
+	exit 1
+elif [[ -z "$3" ]]; then
+	echo -e "${RED}Error:${NC} Username is empty."
+	exit 1
+elif [[ -z "$4" ]] && [[ "$1" == "create" ]]; then
+	echo -e "${RED}Error:${NC} Password is empty."
+	exit 1
+elif [[ "$1" == "create" ]]; then
+	sudo /usr/local/bin/genhiduser "$2" "$3" "$4"
+	exit $?
+elif [[ "$1" == "delete" ]]; then
+	sudo /usr/local/bin/rmhiduser "$2" "$3"
+	exit $?
+else
+	echo -e "${RED}Error:${NC} Argument does not exist."
+	exit 1
+fi
+exit $EXITCODE

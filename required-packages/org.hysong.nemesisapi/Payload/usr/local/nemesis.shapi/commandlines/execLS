@@ -1,0 +1,8 @@
+#!/bin/bash
+open "/Library/Application Support/LanSchool/LanSchool.app"
+ExitCodeOfFirstTask=$?
+if [[ ExitCodeOfFirstTask == 0 ]]; then
+    exit 0
+else
+    exit 1
+fi

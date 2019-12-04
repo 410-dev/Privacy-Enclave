@@ -1,0 +1,33 @@
+#!/bin/bash
+RED='\033[0;31m'
+GRN='\033[0;32m'
+NC='\033[0m'
+if [[ $EUID -ne 0 ]]; then
+	echo -e "${RED}Error:${NC} Permission Denied."
+	exit 1
+fi
+if [[ -z "$1" ]]; then
+	echo -e "${RED}Error:${NC} Path field is empty."
+	exit 1
+elif [[ -z "$2" ]]; then
+	echo -e "${RED}Error:${NC} Username is empty."
+	exit 1
+fi
+LOC="$1"
+USERN="$2"
+loginid=$USERN
+echo "1/1: Checking User..."
+if [ -d /Users/$USERN ]; then
+	echo "ERROR:process:265"
+	exit 1
+fi
+if [ ! -d "$LOC/$USERN" ]; then
+	echo "ERROR:process:267"
+	exit 1
+fi
+sudo dscl . create /Users/$loginid IsHidden 0
+sudo rm -r "$LOC"/$loginid
+sudo dscl . delete /Users/$loginid
+echo "Removed."
+exit 0
+

@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3175D47238EC00B004531E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3175D46238EC00B004531E5 /* AppDelegate.swift */; };
+		C3175D49238EC00B004531E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3175D48238EC00B004531E5 /* ViewController.swift */; };
+		C3175D4B238EC00C004531E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3175D4A238EC00C004531E5 /* Assets.xcassets */; };
+		C3175D4E238EC00C004531E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3175D4C238EC00C004531E5 /* Main.storyboard */; };
+		C3175D5A238EC00C004531E5 /* Privacy_EnclaveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3175D59238EC00C004531E5 /* Privacy_EnclaveTests.swift */; };
+		C3175D65238EC00C004531E5 /* Privacy_EnclaveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3175D64238EC00C004531E5 /* Privacy_EnclaveUITests.swift */; };
+		C3175D73238EC490004531E5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D72238EC48F004531E5 /* icon.png */; };
+		C3175D76238EC5E8004531E5 /* locked.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D74238EC5E7004531E5 /* locked.png */; };
+		C3175D77238EC5E8004531E5 /* unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D75238EC5E7004531E5 /* unlocked.png */; };
+		C3175D79238EC6B7004531E5 /* working.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D78238EC6B7004531E5 /* working.png */; };
+		C3175D7B238EC8C7004531E5 /* ready.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D7A238EC8C6004531E5 /* ready.png */; };
+		C3175D7D238ECC6D004531E5 /* LogoInString.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D7C238ECC6D004531E5 /* LogoInString.png */; };
+		C3175D80238ED29B004531E5 /* GraphicComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3175D7E238ED29B004531E5 /* GraphicComponents.swift */; };
+		C3175D81238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3175D7F238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift */; };
+		C3462AD02395F9D3003311E6 /* CorePackages in Resources */ = {isa = PBXBuildFile; fileRef = C3462ACF2395F9D3003311E6 /* CorePackages */; };
+		C3462AD22395FEBE003311E6 /* mpkg-live.sh in Resources */ = {isa = PBXBuildFile; fileRef = C3462AD12395FEBD003311E6 /* mpkg-live.sh */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C3175D56238EC00C004531E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3175D3B238EC00B004531E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3175D42238EC00B004531E5;
+			remoteInfo = "Privacy Enclave";
+		};
+		C3175D61238EC00C004531E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C3175D3B238EC00B004531E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C3175D42238EC00B004531E5;
+			remoteInfo = "Privacy Enclave";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C3175D43238EC00B004531E5 /* Privacy Enclave.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Privacy Enclave.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3175D46238EC00B004531E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C3175D48238EC00B004531E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C3175D4A238EC00C004531E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C3175D4D238EC00C004531E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C3175D4F238EC00C004531E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3175D50238EC00C004531E5 /* Privacy_Enclave.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Privacy_Enclave.entitlements; sourceTree = "<group>"; };
+		C3175D55238EC00C004531E5 /* Privacy EnclaveTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Privacy EnclaveTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3175D59238EC00C004531E5 /* Privacy_EnclaveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy_EnclaveTests.swift; sourceTree = "<group>"; };
+		C3175D5B238EC00C004531E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3175D60238EC00C004531E5 /* Privacy EnclaveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Privacy EnclaveUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3175D64238EC00C004531E5 /* Privacy_EnclaveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Privacy_EnclaveUITests.swift; sourceTree = "<group>"; };
+		C3175D66238EC00C004531E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3175D72238EC48F004531E5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		C3175D74238EC5E7004531E5 /* locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = locked.png; sourceTree = "<group>"; };
+		C3175D75238EC5E7004531E5 /* unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unlocked.png; sourceTree = "<group>"; };
+		C3175D78238EC6B7004531E5 /* working.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = working.png; sourceTree = "<group>"; };
+		C3175D7A238EC8C6004531E5 /* ready.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ready.png; sourceTree = "<group>"; };
+		C3175D7C238ECC6D004531E5 /* LogoInString.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoInString.png; sourceTree = "<group>"; };
+		C3175D7E238ED29B004531E5 /* GraphicComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphicComponents.swift; path = "../../../../Code Projects/Archive/Swift-CoreLevelCompatibilityLayer/GraphicComponents.swift"; sourceTree = "<group>"; };
+		C3175D7F238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemLevelCompatibilityLayer.swift; path = "../../../../Code Projects/Archive/Swift-CoreLevelCompatibilityLayer/SystemLevelCompatibilityLayer.swift"; sourceTree = "<group>"; };
+		C3462ACF2395F9D3003311E6 /* CorePackages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CorePackages; sourceTree = "<group>"; };
+		C3462AD12395FEBD003311E6 /* mpkg-live.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "mpkg-live.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C3175D40238EC00B004531E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3175D52238EC00C004531E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3175D5D238EC00C004531E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C3175D3A238EC00B004531E5 = {
+			isa = PBXGroup;
+			children = (
+				C3175D45238EC00B004531E5 /* Privacy Enclave */,
+				C3175D58238EC00C004531E5 /* Privacy EnclaveTests */,
+				C3175D63238EC00C004531E5 /* Privacy EnclaveUITests */,
+				C3175D44238EC00B004531E5 /* Products */,
+				C3175D72238EC48F004531E5 /* icon.png */,
+				C3175D74238EC5E7004531E5 /* locked.png */,
+				C3175D75238EC5E7004531E5 /* unlocked.png */,
+				C3462AD12395FEBD003311E6 /* mpkg-live.sh */,
+				C3175D78238EC6B7004531E5 /* working.png */,
+				C3175D7A238EC8C6004531E5 /* ready.png */,
+				C3175D7C238ECC6D004531E5 /* LogoInString.png */,
+				C3462ACF2395F9D3003311E6 /* CorePackages */,
+			);
+			sourceTree = "<group>";
+		};
+		C3175D44238EC00B004531E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C3175D43238EC00B004531E5 /* Privacy Enclave.app */,
+				C3175D55238EC00C004531E5 /* Privacy EnclaveTests.xctest */,
+				C3175D60238EC00C004531E5 /* Privacy EnclaveUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C3175D45238EC00B004531E5 /* Privacy Enclave */ = {
+			isa = PBXGroup;
+			children = (
+				C3175D46238EC00B004531E5 /* AppDelegate.swift */,
+				C3175D48238EC00B004531E5 /* ViewController.swift */,
+				C3175D7E238ED29B004531E5 /* GraphicComponents.swift */,
+				C3175D7F238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift */,
+				C3175D4A238EC00C004531E5 /* Assets.xcassets */,
+				C3175D4C238EC00C004531E5 /* Main.storyboard */,
+				C3175D4F238EC00C004531E5 /* Info.plist */,
+				C3175D50238EC00C004531E5 /* Privacy_Enclave.entitlements */,
+			);
+			path = "Privacy Enclave";
+			sourceTree = "<group>";
+		};
+		C3175D58238EC00C004531E5 /* Privacy EnclaveTests */ = {
+			isa = PBXGroup;
+			children = (
+				C3175D59238EC00C004531E5 /* Privacy_EnclaveTests.swift */,
+				C3175D5B238EC00C004531E5 /* Info.plist */,
+			);
+			path = "Privacy EnclaveTests";
+			sourceTree = "<group>";
+		};
+		C3175D63238EC00C004531E5 /* Privacy EnclaveUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C3175D64238EC00C004531E5 /* Privacy_EnclaveUITests.swift */,
+				C3175D66238EC00C004531E5 /* Info.plist */,
+			);
+			path = "Privacy EnclaveUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C3175D42238EC00B004531E5 /* Privacy Enclave */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3175D69238EC00C004531E5 /* Build configuration list for PBXNativeTarget "Privacy Enclave" */;
+			buildPhases = (
+				C3175D3F238EC00B004531E5 /* Sources */,
+				C3175D40238EC00B004531E5 /* Frameworks */,
+				C3175D41238EC00B004531E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Privacy Enclave";
+			productName = "Privacy Enclave";
+			productReference = C3175D43238EC00B004531E5 /* Privacy Enclave.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C3175D54238EC00C004531E5 /* Privacy EnclaveTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3175D6C238EC00C004531E5 /* Build configuration list for PBXNativeTarget "Privacy EnclaveTests" */;
+			buildPhases = (
+				C3175D51238EC00C004531E5 /* Sources */,
+				C3175D52238EC00C004531E5 /* Frameworks */,
+				C3175D53238EC00C004531E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3175D57238EC00C004531E5 /* PBXTargetDependency */,
+			);
+			name = "Privacy EnclaveTests";
+			productName = "Privacy EnclaveTests";
+			productReference = C3175D55238EC00C004531E5 /* Privacy EnclaveTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C3175D5F238EC00C004531E5 /* Privacy EnclaveUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3175D6F238EC00C004531E5 /* Build configuration list for PBXNativeTarget "Privacy EnclaveUITests" */;
+			buildPhases = (
+				C3175D5C238EC00C004531E5 /* Sources */,
+				C3175D5D238EC00C004531E5 /* Frameworks */,
+				C3175D5E238EC00C004531E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C3175D62238EC00C004531E5 /* PBXTargetDependency */,
+			);
+			name = "Privacy EnclaveUITests";
+			productName = "Privacy EnclaveUITests";
+			productReference = C3175D60238EC00C004531E5 /* Privacy EnclaveUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C3175D3B238EC00B004531E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Hoyoun Song";
+				TargetAttributes = {
+					C3175D42238EC00B004531E5 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					C3175D54238EC00C004531E5 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = C3175D42238EC00B004531E5;
+					};
+					C3175D5F238EC00C004531E5 = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = C3175D42238EC00B004531E5;
+					};
+				};
+			};
+			buildConfigurationList = C3175D3E238EC00B004531E5 /* Build configuration list for PBXProject "Privacy Enclave" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C3175D3A238EC00B004531E5;
+			productRefGroup = C3175D44238EC00B004531E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C3175D42238EC00B004531E5 /* Privacy Enclave */,
+				C3175D54238EC00C004531E5 /* Privacy EnclaveTests */,
+				C3175D5F238EC00C004531E5 /* Privacy EnclaveUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C3175D41238EC00B004531E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3175D4B238EC00C004531E5 /* Assets.xcassets in Resources */,
+				C3175D4E238EC00C004531E5 /* Main.storyboard in Resources */,
+				C3462AD02395F9D3003311E6 /* CorePackages in Resources */,
+				C3462AD22395FEBE003311E6 /* mpkg-live.sh in Resources */,
+				C3175D7D238ECC6D004531E5 /* LogoInString.png in Resources */,
+				C3175D73238EC490004531E5 /* icon.png in Resources */,
+				C3175D79238EC6B7004531E5 /* working.png in Resources */,
+				C3175D77238EC5E8004531E5 /* unlocked.png in Resources */,
+				C3175D76238EC5E8004531E5 /* locked.png in Resources */,
+				C3175D7B238EC8C7004531E5 /* ready.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3175D53238EC00C004531E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3175D5E238EC00C004531E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C3175D3F238EC00B004531E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3175D49238EC00B004531E5 /* ViewController.swift in Sources */,
+				C3175D80238ED29B004531E5 /* GraphicComponents.swift in Sources */,
+				C3175D81238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift in Sources */,
+				C3175D47238EC00B004531E5 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3175D51238EC00C004531E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3175D5A238EC00C004531E5 /* Privacy_EnclaveTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C3175D5C238EC00C004531E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3175D65238EC00C004531E5 /* Privacy_EnclaveUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C3175D57238EC00C004531E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3175D42238EC00B004531E5 /* Privacy Enclave */;
+			targetProxy = C3175D56238EC00C004531E5 /* PBXContainerItemProxy */;
+		};
+		C3175D62238EC00C004531E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C3175D42238EC00B004531E5 /* Privacy Enclave */;
+			targetProxy = C3175D61238EC00C004531E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C3175D4C238EC00C004531E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C3175D4D238EC00C004531E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C3175D67238EC00C004531E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C3175D68238EC00C004531E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		C3175D6A238EC00C004531E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Privacy Enclave/Privacy_Enclave.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Privacy Enclave/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.hysong.Privacy-Enclave";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C3175D6B238EC00C004531E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Privacy Enclave/Privacy_Enclave.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Privacy Enclave/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.hysong.Privacy-Enclave";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C3175D6D238EC00C004531E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Privacy EnclaveTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.hysong.Privacy-EnclaveTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Privacy Enclave.app/Contents/MacOS/Privacy Enclave";
+			};
+			name = Debug;
+		};
+		C3175D6E238EC00C004531E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Privacy EnclaveTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.hysong.Privacy-EnclaveTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Privacy Enclave.app/Contents/MacOS/Privacy Enclave";
+			};
+			name = Release;
+		};
+		C3175D70238EC00C004531E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Privacy EnclaveUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.hysong.Privacy-EnclaveUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Privacy Enclave";
+			};
+			name = Debug;
+		};
+		C3175D71238EC00C004531E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Privacy EnclaveUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.hysong.Privacy-EnclaveUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = "Privacy Enclave";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C3175D3E238EC00B004531E5 /* Build configuration list for PBXProject "Privacy Enclave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3175D67238EC00C004531E5 /* Debug */,
+				C3175D68238EC00C004531E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3175D69238EC00C004531E5 /* Build configuration list for PBXNativeTarget "Privacy Enclave" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3175D6A238EC00C004531E5 /* Debug */,
+				C3175D6B238EC00C004531E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3175D6C238EC00C004531E5 /* Build configuration list for PBXNativeTarget "Privacy EnclaveTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3175D6D238EC00C004531E5 /* Debug */,
+				C3175D6E238EC00C004531E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C3175D6F238EC00C004531E5 /* Build configuration list for PBXNativeTarget "Privacy EnclaveUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3175D70238EC00C004531E5 /* Debug */,
+				C3175D71238EC00C004531E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C3175D3B238EC00B004531E5 /* Project object */;
+}

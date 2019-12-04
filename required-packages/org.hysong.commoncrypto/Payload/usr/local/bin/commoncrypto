@@ -1,0 +1,36 @@
+#!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m'
+if [[ -z "$1" ]]; then
+	echo -e "${RED}Error: ${NC}Missing Argument - hash/hdiencrypt"
+	exit 1
+elif [[ "$1" -ne "hash" ]] || [[ "$1" -ne "hdiencrypt" ]] || [[ "$1" -ne "hashfile" ]]; then
+	echo -e "${RED}Error: ${NC}Wrong Argument - hash/hdiencrypt/hashfile"
+	exit 1
+elif [[ -z "$2" ]]; then
+	echo -e "${RED}Error: ${NC}Missing Argument - algorithm/path"
+	exit 1
+elif [[ -z "$3" ]]; then
+	echo -e "${RED}Error: ${NC}Missing Argument - string or path/password"
+	exit 1
+fi
+
+if [[ "$1" == "hash" ]]; then
+	echo $(echo "$3" | openssl dgst -$2)
+elif [[ "$1" == "hdiencrypt" ]]; then
+	if [[ -z "$4" ]]; then
+		echo -e "${RED}Error: ${NC}Missing Size"
+		exit 1
+	elif [[ -z "$5" ]]; then
+		echo -e "${RED}Error: ${NC}Missing name"
+		exit 1
+	elif [[ -z "$6" ]]; then
+		echo -e "${RED}Error: ${NC}Missing file system"
+		exit 1
+	else
+		echo -n "$3" | hdiutil create -encryption AES-128 -stdinpass -type SPARSE -fs $6 -size $4 -volname $5 "$2"
+	fi
+elif [[ "$1" == "hashfile" ]]; then
+	echo $(echo $(<"$3") | openssl dgst -$2)
+fi
+exit $EXITCODE

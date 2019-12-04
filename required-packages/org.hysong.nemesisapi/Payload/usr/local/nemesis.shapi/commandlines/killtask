@@ -1,0 +1,40 @@
+#!/bin/bash
+RED='\033[0;31m'
+YEL='\033[0;33m'
+GRN='\033[0;32m'
+NC='\033[0m'
+
+killall LanSchool
+killall student
+
+#if [[ -z $1 ]]; then
+#	echo -e "[NEMESIS] ${YEL}Warning:${NC} Kill code is not given!"
+#fi
+#if [[ ! -z $(launchctl list | grep "lanschool") ]]; then
+#	echo -e "[NEMESIS] ${YEL}Warning:${NC} launchctl has LanSchool on its list. This may cause ERC02/01."
+#fi
+#ActiveProcessLineForLanSchool=$(ps -ef | grep 'LanSchool' | awk '{print $2}')
+#ActiveProcessLineForStudent=$(ps -ef | grep 'student' | awk '{print $2}')
+#if [[ ! -z $(echo ActiveProcessLineForLanSchool | grep "grep") ]]; then
+#	echo -e "[NEMESIS] ${RED}Error:${NC} Unable to kill process \"LanSchool\": ERC_34_NO_SUCH_PROCESS"
+#else
+#	kill $1 `ps -ef | grep 'LanSchool' | awk '{print $2}'`
+#	ActiveProcessLineForLanSchool=$(ps -ef | grep 'LanSchool' | awk '{print $2}')
+#	if [[ ! -z $(echo ActiveProcessLineForLanSchool | grep "grep") ]]; then
+#		echo -e "[NEMESIS] ${GRN}Successfully${NC} killed LanSchool process with kill code $1."
+#	else
+#		echo -e "[NEMESIS] ${RED}Error:${NC} Unable to kill process \"LanSchool\": ERC_02_RESURRECTION_ENABLED"
+#	fi
+#fi
+#
+#if [[ ! -z $(echo ActiveProcessLineForStudent | grep "grep") ]]; then
+#	echo -e "[NEMESIS] ${RED}Error:${NC} Unable to kill process \"student\": ERC_34_NO_SUCH_PROCESS"
+#else
+#	kill $1 `ps -ef | grep 'student' | awk '{print $2}'`
+#	ActiveProcessLineForStudent=$(ps -ef | grep 'student' | awk '{print $2}')
+#	if [[ ! -z $(echo ActiveProcessLineForStudent | grep "grep") ]]; then
+#		echo -e "[NEMESIS] ${GRN}Successfully${NC} killed student process with kill code $1."
+#	else
+#		echo -e "[NEMESIS] ${RED}Error:${NC} Unable to kill process \"student\": ERC_01_RESURRECTION_ENABLED"
+#	fi
+#fi

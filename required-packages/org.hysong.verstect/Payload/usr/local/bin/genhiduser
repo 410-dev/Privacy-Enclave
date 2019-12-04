@@ -1,0 +1,58 @@
+#!/bin/bash
+RED='\033[0;31m'
+GRN='\033[0;32m'
+NC='\033[0m'
+if [[ $EUID -ne 0 ]]; then
+	echo -e "${RED}Error:${NC} Permission Denied."
+	exit 1
+fi
+if [[ -z "$1" ]]; then
+	echo -e "${RED}Error:${NC} Path field is empty."
+	exit 1
+elif [[ -z "$2" ]]; then
+	echo -e "${RED}Error:${NC} Username is empty."
+	exit 1
+elif [[ -z "$3" ]]; then
+	echo -e "${RED}Error:${NC} Password is empty."
+	exit 1
+fi
+LOC="$1"
+USERN="$2"
+PW="$3"
+echo "1/1: Checking User..."
+if [ -d /Volumes/Macintosh\ HD/Users/$USERN ]; then
+	echo "ERROR:process:265"
+	exit 1
+fi
+if [ -d "$LOC/$USERN" ]; then
+	echo "ERROR:process:266"
+	exit 1
+fi
+username=$USERN
+loginid=$USERN
+password=$PW
+echo "1/12: Creating default..."
+sudo dscl . -create /Users/$loginid
+echo "2/12: Setting user shell..."
+sudo dscl . -create /Users/$loginid UserShell /bin/bash
+echo "3/12: Setting name... (Name: " $username ")"
+sudo dscl . -create /Users/$loginid RealName $username
+echo "4/12: Creating UniqueID..."
+sudo dscl . -create /Users/$loginid UniqueID 1001
+echo "5/12: Creating PrimaryGroupID..."
+sudo dscl . -create /Users/$loginid PrimaryGroupID 1000
+echo "6/12: Initializing NFSHomeDirectory..."
+sudo dscl . -create /Users/$loginid NFSHomeDirectory /var/$loginid
+echo "7/12: Setting Password... (Password: " $password ")"
+sudo dscl . -passwd /Users/$loginid $password
+echo "8/12: Granting administrator privilage..."
+sudo dscl . -append /Groups/admin GroupMembership $loginid
+echo "9/12: Starting hide process"
+echo "10/12: Relocating NFSHomeDirectory..."
+sudo dscl . create /Users/$loginid NFSHomeDirectory /var/$loginid
+echo "11/12: Transfering Contents..."
+echo "12/12: Setting hidden is true..."
+sudo dscl . create /Users/$loginid IsHidden 1
+echo "Done."
+exit 0
+

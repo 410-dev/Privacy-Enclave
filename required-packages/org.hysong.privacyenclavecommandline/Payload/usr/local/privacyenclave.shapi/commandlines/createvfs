@@ -1,0 +1,32 @@
+#!/bin/bash
+RED='\033[0;31m'
+NC='\033[0m'
+if [[ -z "$1" ]]; then
+	echo -e "${RED}Error:${NC} Location data is missing."
+	exit 1
+elif [[ -z "$2" ]]; then
+	echo -e "${RED}Error:${NC} Name is missing."
+	exit 1
+elif [[ -z "$3" ]]; then
+	echo -e "${RED}Error:${NC} Size is missing."
+	exit 1
+elif [[ -z "$4" ]]; then
+	echo -e "${RED}Error:${NC} Filesystem is missing."
+	exit 1
+elif [[ -z "$5" ]]; then
+	echo -e "${RED}Error:${NC} Password is missing."
+	exit 1
+else
+	echo "Creating VFS..."
+	PASS=$(commoncrypto hash sha512 "$5")
+	echo "Renaming memories..."
+	FS="$4"
+	LOC="$1"
+	NAME="$2"
+	SIZE="$3"
+	mkdir -p "$LOC"
+	rm -rf "$LOC"
+	commoncrypto hdiencrypt "$LOC" "$PASS" "$SIZE" "$NAME" "$FS"
+	EXITCODE=$?
+fi
+exit $EXITCODE

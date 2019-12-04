@@ -1,0 +1,8 @@
+#!/bin/bash
+clear
+BINPATH=$(<~/Documents/heph_bin_path_binary)
+echo "[LAUNCHER] Your login password is required in order to proceed."
+echo "[LAUNCHER] Launching Privacy Enclave..."
+sudo echo "[LAUNCHER] Granted."
+osascript -e 'tell application "Finder"' -e 'set visible of process "Terminal" to false' -e 'end tell'
+sudo "$BINPATH"
