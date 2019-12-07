@@ -12,7 +12,7 @@ elif [[ ! -f "$2" ]]; then
 	echo -e "${RED}Error:${NC} No such file."
 	exit 1
 else
-	PASS=$(commoncrypto hash sha512 "$1")
+	PASS=$(/usr/local/bin/commoncrypto hash sha512 "$1")
 	echo -n "$PASS" | hdiutil attach "$2" -stdinpass >/dev/null
 	EXITCODE=$?
 fi

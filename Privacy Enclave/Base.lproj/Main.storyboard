@@ -32,8 +32,8 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                    <window key="window" title="Privacy Enclave" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" appearanceType="darkAqua" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -54,20 +54,20 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Privacy_Enclave" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="483"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="514"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="rb1-vN-uqE">
-                                <rect key="frame" x="232" y="192" width="16" height="16"/>
+                                <rect key="frame" x="232" y="255" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lOM-mL-xH2">
-                                <rect key="frame" x="81" y="415" width="48" height="48"/>
+                                <rect key="frame" x="81" y="446" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon" id="OGS-m6-Hi2"/>
                             </imageView>
                             <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ulw-8w-8d4">
-                                <rect key="frame" x="20" y="256" width="440" height="135"/>
+                                <rect key="frame" x="20" y="288" width="440" height="135"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <clipView key="contentView" ambiguous="YES" drawsBackground="NO" copiesOnScroll="NO" id="QPU-xf-7h4">
                                     <rect key="frame" x="0.0" y="0.0" width="440" height="135"/>
@@ -103,12 +103,12 @@
                                 </scroller>
                             </scrollView>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ORh-53-hc2">
-                                <rect key="frame" x="130" y="424" width="278" height="48"/>
+                                <rect key="frame" x="130" y="455" width="278" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="LogoInString" id="KO7-4i-KOP"/>
                             </imageView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVy-kA-ZD7">
-                                <rect key="frame" x="142" y="418" width="253" height="13"/>
+                                <rect key="frame" x="142" y="450" width="253" height="13"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Version Alpha" id="wt6-vE-6ah">
                                     <font key="font" metaFont="fixedUser" size="11"/>
@@ -117,7 +117,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VfC-bu-Sdy">
-                                <rect key="frame" x="18" y="216" width="444" height="22"/>
+                                <rect key="frame" x="18" y="225" width="444" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Idle" id="X8a-GK-KYr">
                                     <font key="font" size="19" name="Menlo-Regular"/>
@@ -126,7 +126,7 @@
                                 </textFieldCell>
                             </textField>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="veH-6o-Oce">
-                                <rect key="frame" x="115" y="161" width="250" height="24"/>
+                                <rect key="frame" x="115" y="192" width="250" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="LlD-0X-gu1">
                                     <font key="font" metaFont="system"/>
@@ -139,7 +139,7 @@
                                 </segmentedCell>
                             </segmentedControl>
                             <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LYu-EF-PHS">
-                                <rect key="frame" x="110" y="134" width="260" height="21"/>
+                                <rect key="frame" x="110" y="165" width="260" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Privacy Enclave Password" drawsBackground="YES" usesSingleLineMode="YES" id="apl-8o-Mat">
                                     <font key="font" metaFont="system"/>
@@ -151,9 +151,9 @@
                                 </secureTextFieldCell>
                             </secureTextField>
                             <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V5r-Lo-DD0">
-                                <rect key="frame" x="110" y="78" width="260" height="21"/>
+                                <rect key="frame" x="110" y="81" width="260" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="New Hidden User Password" drawsBackground="YES" usesSingleLineMode="YES" id="Xcv-Va-9yP">
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Unsupported Feature" placeholderString="New Hidden User Password" drawsBackground="YES" usesSingleLineMode="YES" id="Xcv-Va-9yP">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -163,16 +163,16 @@
                                 </secureTextFieldCell>
                             </secureTextField>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TcG-E6-Fa1">
-                                <rect key="frame" x="110" y="103" width="260" height="21"/>
+                                <rect key="frame" x="110" y="107" width="260" height="21"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="New Hidden User Username (No Space)" drawsBackground="YES" id="BCM-mV-XfO">
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" title="Unsupported Feature" placeholderString="New Hidden User Username (No Space)" drawsBackground="YES" id="BCM-mV-XfO">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Abv-Rm-Exz">
-                                <rect key="frame" x="165" y="11" width="150" height="53"/>
+                                <rect key="frame" x="165" y="20" width="150" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="squareTextured" bezelStyle="texturedSquare" image="ready" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" imageScaling="proportionallyDown" inset="2" id="Sfh-2d-fJb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -182,6 +182,18 @@
                                     <action selector="StartTask:" target="XfG-lQ-9wD" id="brf-Sj-zX8"/>
                                 </connections>
                             </button>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ebz-8h-a2l">
+                                <rect key="frame" x="110" y="141" width="260" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Your Admin / Login Password" drawsBackground="YES" usesSingleLineMode="YES" id="3aF-LC-dJi">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
                         </subviews>
                     </view>
                     <connections>
@@ -191,6 +203,7 @@
                         <outlet property="Outlet_EnclavePassword" destination="LYu-EF-PHS" id="jgf-W6-o7S"/>
                         <outlet property="Outlet_HiddenuserName" destination="TcG-E6-Fa1" id="lEV-e5-d0i"/>
                         <outlet property="Outlet_HiddenuserPassword" destination="V5r-Lo-DD0" id="5c3-dG-ZpS"/>
+                        <outlet property="Outlet_LoginPassword" destination="Ebz-8h-a2l" id="AJL-bC-An4"/>
                         <outlet property="Outlet_Spinner" destination="rb1-vN-uqE" id="is6-eY-60H"/>
                         <outlet property="Outlet_StatMessage" destination="VfC-bu-Sdy" id="Odb-MF-O2N"/>
                         <outlet property="Outlet_VersionLabel" destination="MVy-kA-ZD7" id="46j-6l-FZb"/>
@@ -198,7 +211,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="761.5"/>
+            <point key="canvasLocation" x="75" y="777"/>
         </scene>
     </scenes>
     <resources>

@@ -19,10 +19,10 @@
 		C3175D79238EC6B7004531E5 /* working.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D78238EC6B7004531E5 /* working.png */; };
 		C3175D7B238EC8C7004531E5 /* ready.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D7A238EC8C6004531E5 /* ready.png */; };
 		C3175D7D238ECC6D004531E5 /* LogoInString.png in Resources */ = {isa = PBXBuildFile; fileRef = C3175D7C238ECC6D004531E5 /* LogoInString.png */; };
-		C3175D80238ED29B004531E5 /* GraphicComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3175D7E238ED29B004531E5 /* GraphicComponents.swift */; };
-		C3175D81238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3175D7F238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift */; };
 		C3462AD02395F9D3003311E6 /* CorePackages in Resources */ = {isa = PBXBuildFile; fileRef = C3462ACF2395F9D3003311E6 /* CorePackages */; };
 		C3462AD22395FEBE003311E6 /* mpkg-live.sh in Resources */ = {isa = PBXBuildFile; fileRef = C3462AD12395FEBD003311E6 /* mpkg-live.sh */; };
+		C3BC7C0D2397E833004FB79A /* GraphicComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BC7C0B2397E833004FB79A /* GraphicComponents.swift */; };
+		C3BC7C0E2397E833004FB79A /* SystemLevelCompatibilityLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BC7C0C2397E833004FB79A /* SystemLevelCompatibilityLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,10 +62,10 @@
 		C3175D78238EC6B7004531E5 /* working.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = working.png; sourceTree = "<group>"; };
 		C3175D7A238EC8C6004531E5 /* ready.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ready.png; sourceTree = "<group>"; };
 		C3175D7C238ECC6D004531E5 /* LogoInString.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LogoInString.png; sourceTree = "<group>"; };
-		C3175D7E238ED29B004531E5 /* GraphicComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphicComponents.swift; path = "../../../../Code Projects/Archive/Swift-CoreLevelCompatibilityLayer/GraphicComponents.swift"; sourceTree = "<group>"; };
-		C3175D7F238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemLevelCompatibilityLayer.swift; path = "../../../../Code Projects/Archive/Swift-CoreLevelCompatibilityLayer/SystemLevelCompatibilityLayer.swift"; sourceTree = "<group>"; };
 		C3462ACF2395F9D3003311E6 /* CorePackages */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CorePackages; sourceTree = "<group>"; };
 		C3462AD12395FEBD003311E6 /* mpkg-live.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "mpkg-live.sh"; sourceTree = "<group>"; };
+		C3BC7C0B2397E833004FB79A /* GraphicComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GraphicComponents.swift; path = "../../Archive/Swift-CoreLevelCompatibilityLayer/GraphicComponents.swift"; sourceTree = "<group>"; };
+		C3BC7C0C2397E833004FB79A /* SystemLevelCompatibilityLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SystemLevelCompatibilityLayer.swift; path = "../../Archive/Swift-CoreLevelCompatibilityLayer/SystemLevelCompatibilityLayer.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +126,8 @@
 			children = (
 				C3175D46238EC00B004531E5 /* AppDelegate.swift */,
 				C3175D48238EC00B004531E5 /* ViewController.swift */,
-				C3175D7E238ED29B004531E5 /* GraphicComponents.swift */,
-				C3175D7F238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift */,
+				C3BC7C0B2397E833004FB79A /* GraphicComponents.swift */,
+				C3BC7C0C2397E833004FB79A /* SystemLevelCompatibilityLayer.swift */,
 				C3175D4A238EC00C004531E5 /* Assets.xcassets */,
 				C3175D4C238EC00C004531E5 /* Main.storyboard */,
 				C3175D4F238EC00C004531E5 /* Info.plist */,
@@ -292,9 +292,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3BC7C0D2397E833004FB79A /* GraphicComponents.swift in Sources */,
 				C3175D49238EC00B004531E5 /* ViewController.swift in Sources */,
-				C3175D80238ED29B004531E5 /* GraphicComponents.swift in Sources */,
-				C3175D81238ED29B004531E5 /* SystemLevelCompatibilityLayer.swift in Sources */,
+				C3BC7C0E2397E833004FB79A /* SystemLevelCompatibilityLayer.swift in Sources */,
 				C3175D47238EC00B004531E5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

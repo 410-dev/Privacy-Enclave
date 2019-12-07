@@ -15,6 +15,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var Outlet_Console: NSScrollView!
     @IBOutlet weak var Outlet_StatMessage: NSTextField!
     @IBOutlet weak var Outlet_Spinner: NSProgressIndicator!
+    @IBOutlet weak var Outlet_LoginPassword: NSSecureTextField!
     @IBOutlet weak var Outlet_EnclavePassword: NSSecureTextField!
     @IBOutlet weak var Outlet_HiddenuserName: NSTextField!
     @IBOutlet weak var Outlet_HiddenuserPassword: NSSecureTextField!
@@ -23,7 +24,7 @@ class ViewController: NSViewController {
     
     
     // Global Constants
-    let version = "Internal Test Release"
+    let version = "Prerelease 2"
     let nemesisAPIPath = "/usr/local/nemesis.shapi/commandlines/"
     let libpePath = "/usr/local/libprivacyenclave"
     let peapiPath = "/usr/local/privacyenclave.shapi/commandlines/"
@@ -39,26 +40,16 @@ class ViewController: NSViewController {
     var missingResources = ""
     var buttonEnabled = true
     var doesEnclaveGenerated = false
+    var password = ""
     
     func startup() {
         writeLog("Init", "")
         writeLog("Version: " + version, "")
         writeLog("Console Start++++++", "")
-        writeLog("Checking permission...", "")
-        System.executeShellScript("touch", "/var/rwchk")
-        if !System.doesTheFileExist(at: "/var/rwchk") {
-            writeLog("Permission denied!", "!")
-            Graphics.messageBox_errorMessage(title: "No Permission", contents: "Please use the official launcher. The tool cannot run several utilites.")
-            exit(1)
-        }else{
-            System.executeShellScript("rm", "/var/rwchk")
-            writeLog("Permission passed.", "")
-        }
         Outlet_VersionLabel.stringValue = version
         Outlet_Spinner.isHidden = true
         Outlet_Spinner.stopAnimation("")
         writeLog("Privacy Enclave Graphic Utility", "")
-        writeLog("Version: " + version, "")
         updateControlStrip()
     }
     
@@ -89,13 +80,28 @@ class ViewController: NSViewController {
         }
     }
     
+    func checkPermission() {
+        let pass = Outlet_LoginPassword.stringValue
+        writeLog("Checking permission...", "")
+        System.executeShellScriptWithRootPrivilages(pass: pass, "touch#/var/rwchk")
+        if !System.doesTheFileExist(at: "/var/rwchk") {
+            writeLog("Permission denied!", "!")
+            Graphics.messageBox_errorMessage(title: "No Permission", contents: "Please use the official launcher. The tool cannot run several utilites.")
+            exit(1)
+        }else{
+            System.executeShellScriptWithRootPrivilages(pass: pass, "rm#-f#/var/rwchk")
+            writeLog("Permission passed.", "")
+            password = pass
+        }
+    }
+    
     func writeLog(_ value: String, _ sign: String) {
         var showSign = sign
         if sign.elementsEqual("") {
             showSign = "*"
         }
-        Outlet_Console.documentView!.insertText("[" + showSign + "] " + value + "\n")
-        print("[" + showSign + "] " + value)
+        Outlet_Console.documentView!.insertText("[" + showSign + "] " + value.replacingOccurrences(of: "Password:", with: "") + "\n")
+        print("[" + showSign + "] " + value.replacingOccurrences(of: "Password:", with: ""))
     }
     
     func updateStatus(status: String) {
@@ -105,7 +111,11 @@ class ViewController: NSViewController {
     
     @IBAction func StartTask(_ sender: Any) {
         if buttonEnabled {
-            task()
+            if !Outlet_EnclavePassword.stringValue.elementsEqual("") && !Outlet_LoginPassword.stringValue.elementsEqual(""){
+                task()
+            }else{
+                Graphics.messageBox_errorMessage(title: "Passwords Empty", contents: "The first two password fields are empty. Please fill tem first.")
+            }
         }else{
             writeLog("Ignored button input.", "-")
         }
@@ -116,7 +126,7 @@ class ViewController: NSViewController {
         if enabledToggle {
             writeLog("Renaming snapshot dump...", "")
             updateStatus(status: "Rename Snapshot Dump")
-            if System.executeShellScript(nemesisAPIPath + "renameSnapshot", "unload") == 0 {
+            if System.executeShellScriptWithRootPrivilages(pass: password, "mv#/Library/Application Support/LanSchool#/Library/Application Support/Nemesis_protected_LanSchool") == 0 {
                 writeLog("Successfully renamed snapshot dump.", "")
             }else{
                 writeLog("Snapshot dump renaming failed. Non-zero exit code.", "!")
@@ -125,7 +135,7 @@ class ViewController: NSViewController {
             }
             writeLog("Manipulating Launchctl...", "")
             updateStatus(status: "Launchctl Manipulation")
-            if System.executeShellScript(nemesisAPIPath + "launchctlmgr", "unload") == 0 {
+            if System.executeShellScriptWithRootPrivilages(pass: password, nemesisAPIPath + "launchctlmgr#unload") == 0 {
                 writeLog("Successfully manipulated launchctl.", "")
             }else{
                 writeLog("Launchctl manipulation failed. Non-zero exit code.", "!")
@@ -134,7 +144,7 @@ class ViewController: NSViewController {
             }
             writeLog("Killing LSTask...", "")
             updateStatus(status: "Kill LSTask")
-            if System.executeShellScript(nemesisAPIPath + "killtask", "-9") == 0 {
+            if System.executeShellScriptWithRootPrivilages(pass: password, nemesisAPIPath + "killtask#-9") == 0 {
                 writeLog("Successfully killed lstask.", "")
             }else{
                 writeLog("LSTask kill failed. Non-zero exit code.", "!")
@@ -144,7 +154,7 @@ class ViewController: NSViewController {
         }else{
             writeLog("Renaming snapshot dump...", "")
             updateStatus(status: "Rename Snapshot Dump")
-            if System.executeShellScript(nemesisAPIPath + "renameSnapshot", "load") == 0 {
+            if System.executeShellScriptWithRootPrivilages(pass: password, "mv#/Library/Application Support/Nemesis_protected_LanSchool#/Library/Application Support/LanSchool") == 0 {
                 writeLog("Successfully renamed snapshot dump.", "")
             }else{
                 writeLog("Snapshot dump renaming failed. Non-zero exit code.", "!")
@@ -153,7 +163,7 @@ class ViewController: NSViewController {
             }
             writeLog("Manipulating Launchctl...", "")
             updateStatus(status: "Launchctl Manipulation")
-            if System.executeShellScript(nemesisAPIPath + "launchctlmgr", "load") == 0 {
+            if System.executeShellScriptWithRootPrivilages(pass: password,nemesisAPIPath + "launchctlmgr#load") == 0 {
                 writeLog("Successfully manipulated launchctl.", "")
             }else{
                 writeLog("Launchctl manipulation failed. Non-zero exit code.", "!")
@@ -162,14 +172,14 @@ class ViewController: NSViewController {
             }
             writeLog("Starting LSTask...", "")
             updateStatus(status: "Start LSTask")
-            System.executeShellScript(nemesisAPIPath + "execLS")
-            System.executeShellScript(nemesisAPIPath + "execST")
+            System.executeShellScriptWithRootPrivilages(pass: password, nemesisAPIPath + "execLS")
+            System.executeShellScriptWithRootPrivilages(pass: password, nemesisAPIPath + "execST")
         }
     }
     
     func create() -> Int32{
         if !Outlet_EnclavePassword.stringValue.elementsEqual(""){
-            return System.executeShellScript(peapiPath + "createvfs", enclavePath, "Enclave", "10240g", "APFS", Outlet_EnclavePassword.stringValue)
+            return System.executeShellScriptWithRootPrivilages(pass: password, peapiPath + "createvfs#" + enclavePath + "#Enclave#10240g#APFS#" + Outlet_EnclavePassword.stringValue)
         }else{
             let _ = Graphics.messageBox_errorMessage(title: "Empty Password", contents: "Enclave password field is empty.")
             return 1
@@ -177,29 +187,36 @@ class ViewController: NSViewController {
     }
     
     func delete() -> Int32 {
-        if !Outlet_EnclavePassword.stringValue.elementsEqual("") && mount() == 0{
-            if unmount() != 0 {
-                writeLog("Detach failed.", "!")
-                writeLog("Resource busy!", "!")
-                Graphics.messageBox_errorMessage(title: "Resource Busy", contents: "Unable to deactivate the enclave, perhaps an application is using files in the enclave?")
-                return 1
-            }else{
-                System.executeShellScript("rm", "-f", realEnclavePath)
-                if !System.doesTheFileExist(at: realEnclavePath) {
-                    return 0
-                }else{
-                    return 1
-                }
-            }
-        }else{
-            let _ = Graphics.messageBox_errorMessage(title: "Authentication Failed", contents: "Permission denied to remove the privacy enclave.")
+        if unmount() != 0 {
+            writeLog("Detach failed.", "!")
+            writeLog("Resource busy!", "!")
+            Graphics.messageBox_errorMessage(title: "Resource Busy", contents: "Unable to deactivate the enclave, perhaps an application is using files in the enclave?")
             return 1
+        }else{
+            if !Outlet_EnclavePassword.stringValue.elementsEqual("") && mount() == 0{
+                if unmount() != 0 {
+                    writeLog("Detach failed.", "!")
+                    writeLog("Resource busy!", "!")
+                    Graphics.messageBox_errorMessage(title: "Resource Busy", contents: "Unable to deactivate the enclave, perhaps an application is using files in the enclave?")
+                    return 1
+                }else{
+                    System.executeShellScriptWithRootPrivilages(pass: password, "rm#-f#" + realEnclavePath)
+                    if !System.doesTheFileExist(at: realEnclavePath) {
+                        return 0
+                    }else{
+                        return 1
+                    }
+                }
+            }else{
+                let _ = Graphics.messageBox_errorMessage(title: "Authentication Failed", contents: "Permission denied to remove the privacy enclave.")
+                return 1
+            }
         }
     }
     
     func mount() -> Int32 {
         if !Outlet_EnclavePassword.stringValue.elementsEqual(""){
-            return System.executeShellScript(peapiPath + "mountvfs", Outlet_EnclavePassword.stringValue, realEnclavePath)
+            return System.executeShellScriptWithRootPrivilages(pass: password, peapiPath + "mountvfs#" + Outlet_EnclavePassword.stringValue + "#" + realEnclavePath)
         }else{
             let _ = Graphics.messageBox_errorMessage(title: "Empty Password", contents: "Enclave password field is empty.")
             return 1
@@ -208,7 +225,7 @@ class ViewController: NSViewController {
     
     func unmount() -> Int32 {
         if !Outlet_EnclavePassword.stringValue.elementsEqual("") && mount() == 0{
-            return System.executeShellScript("hdiutil", "detach", "/Volumes/Enclave", "-force")
+            return System.executeShellScriptWithRootPrivilages(pass: password, "hdiutil#detach#/Volumes/Enclave#-force")
         }else{
             let _ = Graphics.messageBox_errorMessage(title: "Empty Password", contents: "Enclave password field is empty.")
             return 1
@@ -219,8 +236,14 @@ class ViewController: NSViewController {
         buttonEnabled = false
         Outlet_Spinner.isHidden = false
         Outlet_Spinner.startAnimation("")
+        Outlet_LoginPassword.isEnabled = false
+        Outlet_EnclavePassword.isEnabled = false
+        Outlet_HiddenuserName.isEnabled = false
+        Outlet_HiddenuserPassword.isEnabled = false
         Outlet_ActionButton.image = NSImage(imageLiteralResourceName: "working.png")
         writeLog("Button Pressed; Starting tasks!", "")
+        updateStatus(status: "Check Privilages")
+        checkPermission()
         rsMgr()
         updateStatus(status: "Check System")
         writeLog("Checking system state...", "")
@@ -316,6 +339,10 @@ class ViewController: NSViewController {
         updateControlStrip()
         buttonEnabled = true
         Outlet_Spinner.isHidden = true
+        Outlet_LoginPassword.isEnabled = true
+        Outlet_EnclavePassword.isEnabled = true
+        Outlet_HiddenuserName.isEnabled = true
+        Outlet_HiddenuserPassword.isEnabled = true
         writeLog("Task all complete.", "")
     }
     
@@ -329,14 +356,14 @@ class ViewController: NSViewController {
             while listOfMissingResources.count - 1 > loopcount {
                 if listOfMissingResources[loopcount].elementsEqual("mpkg") {
                     writeLog("Extracting mpkg package manager...", "")
-                    System.executeShellScript(BundleResources + "/mpkg-live.sh", "-i", BundleResources + "/CorePackages/mpkg.mpack")
+                    System.executeShellScriptWithRootPrivilages(pass: password, BundleResources + "/mpkg-live.sh#-i#" + BundleResources + "/CorePackages/mpkg.mpack")
                     writeLog("Extracting net package manager...", "")
-                    System.executeShellScript(BundleResources + "/mpkg-live.sh", "-i", BundleResources + "/CorePackages/net.mpack")
+                    System.executeShellScriptWithRootPrivilages(pass: password, BundleResources + "/mpkg-live.sh#-i#" + BundleResources + "/CorePackages/net.mpack")
                 }else if listOfMissingResources[loopcount].elementsEqual("") {
                     writeLog("Skipped empty package selection.", "")
                 }else{
                     writeLog("Installing " + listOfMissingResources[loopcount] + " locally...", "")
-                    if System.executeShellScript("/usr/local/bin/mpkg", "--install", BundleResources + "/CorePackages/" + listOfMissingResources[loopcount] + ".mpack") == 0 {
+                    if System.executeShellScriptWithRootPrivilages(pass: password, "/usr/local/bin/mpkg#--install#" + BundleResources + "/CorePackages/" + listOfMissingResources[loopcount] + ".mpack") == 0 {
                         writeLog("Sub-process /usr/local/mpkglib/binary/mpkg-install returned exit code 0.", "")
                     }else{
                         writeLog("Sub-process /usr/local/mpkglib/binary/mpkg-install returned non-zero exit code.", "-")

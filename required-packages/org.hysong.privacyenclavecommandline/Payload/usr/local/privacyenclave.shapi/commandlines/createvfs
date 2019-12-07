@@ -18,7 +18,7 @@ elif [[ -z "$5" ]]; then
 	exit 1
 else
 	echo "Creating VFS..."
-	PASS=$(commoncrypto hash sha512 "$5")
+	PASS=$(/usr/local/bin/commoncrypto hash sha512 "$5")
 	echo "Renaming memories..."
 	FS="$4"
 	LOC="$1"
@@ -26,7 +26,7 @@ else
 	SIZE="$3"
 	mkdir -p "$LOC"
 	rm -rf "$LOC"
-	commoncrypto hdiencrypt "$LOC" "$PASS" "$SIZE" "$NAME" "$FS"
+	/usr/local/bin/commoncrypto hdiencrypt "$LOC" "$PASS" "$SIZE" "$NAME" "$FS"
 	EXITCODE=$?
 fi
 exit $EXITCODE
