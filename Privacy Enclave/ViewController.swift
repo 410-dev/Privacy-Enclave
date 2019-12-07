@@ -251,7 +251,7 @@ class ViewController: NSViewController {
         if isKIS {
             updateStatus(status: "Disable LanSchool")
             writeLog("Disabling LanSchool for the moment...", "")
-            nemesis(enabledToggle: false)
+            nemesis(enabledToggle: isKIS)
         }else{
             writeLog("LanSchool is not detected.", "")
         }
@@ -331,7 +331,7 @@ class ViewController: NSViewController {
         if SelectedOption != 0 && isKIS {
             updateStatus(status: "Enable LanSchool")
             writeLog("Enabling LanSchool again...", "")
-            nemesis(enabledToggle: true)
+            nemesis(enabledToggle: false)
         }
         if !Outlet_StatMessage.stringValue.elementsEqual("Failed") {
             updateStatus(status: "Done")
