@@ -41,16 +41,19 @@ class ViewController: NSViewController {
     var buttonEnabled = true
     var doesEnclaveGenerated = false
     var password = ""
+    var isKIS = true
     
     func startup() {
         writeLog("Init", "")
         writeLog("Version: " + version, "")
-        writeLog("Console Start++++++", "")
         Outlet_VersionLabel.stringValue = version
         Outlet_Spinner.isHidden = true
         Outlet_Spinner.stopAnimation("")
         writeLog("Privacy Enclave Graphic Utility", "")
         updateControlStrip()
+        writeLog("Checking system state...", "")
+        isKIS = isKISImage()
+        writeLog("Ready.", "")
     }
     
     func updateControlStrip() {
@@ -245,10 +248,8 @@ class ViewController: NSViewController {
         updateStatus(status: "Check Privilages")
         checkPermission()
         rsMgr()
-        updateStatus(status: "Check System")
-        writeLog("Checking system state...", "")
-        let isKIS = isKISImage()
-        if isKIS {
+        let SelectedOption = Outlet_ControlSegment.selectedSegment
+        if SelectedOption == 0 && isKIS {
             updateStatus(status: "Disable LanSchool")
             writeLog("Disabling LanSchool for the moment...", "")
             nemesis(enabledToggle: isKIS)
@@ -256,8 +257,7 @@ class ViewController: NSViewController {
             writeLog("LanSchool is not detected.", "")
         }
         updateStatus(status: "Run Assigned Task")
-        writeLog("Running assigned task!", "")
-        let SelectedOption = Outlet_ControlSegment.selectedSegment
+        writeLog("Running assigned task...", "")
         if SelectedOption == 0 {
             writeLog("Unlocking enclave...", "")
             if mount() == 0 {
@@ -328,7 +328,7 @@ class ViewController: NSViewController {
         }else{
             Graphics.messageBox_errorMessage(title: "Option not selected", contents: "No such option is available.")
         }
-        if SelectedOption != 0 && isKIS {
+        if (SelectedOption == 0 || SelectedOption == 2) && isKIS {
             updateStatus(status: "Enable LanSchool")
             writeLog("Enabling LanSchool again...", "")
             nemesis(enabledToggle: false)
