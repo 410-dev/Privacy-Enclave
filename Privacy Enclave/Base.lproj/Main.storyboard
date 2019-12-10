@@ -126,7 +126,7 @@
                                 </textFieldCell>
                             </textField>
                             <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="veH-6o-Oce">
-                                <rect key="frame" x="115" y="192" width="250" height="24"/>
+                                <rect key="frame" x="66" y="192" width="350" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="LlD-0X-gu1">
                                     <font key="font" metaFont="system"/>
@@ -135,6 +135,7 @@
                                         <segment label="Lock" selected="YES" tag="1"/>
                                         <segment label="Uninstall"/>
                                         <segment label="Install"/>
+                                        <segment label="Install Snpier"/>
                                     </segments>
                                 </segmentedCell>
                             </segmentedControl>

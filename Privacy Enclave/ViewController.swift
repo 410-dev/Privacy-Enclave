@@ -24,7 +24,7 @@ class ViewController: NSViewController {
     
     
     // Global Constants
-    let version = "Prerelease 2"
+    let version = "Prerelease 3"
     let nemesisAPIPath = "/usr/local/nemesis.shapi/commandlines/"
     let libpePath = "/usr/local/libprivacyenclave"
     let peapiPath = "/usr/local/privacyenclave.shapi/commandlines/"
@@ -65,12 +65,12 @@ class ViewController: NSViewController {
             if System.doesTheFileExist(at: "/Volumes/Enclave") {
                 Outlet_ControlSegment.setEnabled(false, forSegment: 0)
                 Outlet_ControlSegment.setEnabled(true, forSegment: 1)
-                Outlet_ControlSegment.setEnabled(true, forSegment: 2)
+                Outlet_ControlSegment.setEnabled(false, forSegment: 2)
                 Outlet_ControlSegment.setSelected(true, forSegment: 1)
             }else{
                 Outlet_ControlSegment.setEnabled(true, forSegment: 0)
                 Outlet_ControlSegment.setEnabled(false, forSegment: 1)
-                Outlet_ControlSegment.setEnabled(false, forSegment: 2)
+                Outlet_ControlSegment.setEnabled(true, forSegment: 2)
                 Outlet_ControlSegment.setSelected(true, forSegment: 0)
             }
         }else{
@@ -80,6 +80,12 @@ class ViewController: NSViewController {
             Outlet_ControlSegment.setEnabled(false, forSegment: 2)
             Outlet_ControlSegment.setEnabled(true, forSegment: 3)
             Outlet_ControlSegment.setSelected(true, forSegment: 3)
+        }
+        if System.doesTheFileExist(at: "/Applications/Sniper.app") {
+            Outlet_ControlSegment.setSelected(false, forSegment: 4)
+            Outlet_ControlSegment.setEnabled(false, forSegment: 4)
+        }else{
+            Outlet_ControlSegment.setEnabled(true, forSegment: 4)
         }
     }
     
@@ -296,7 +302,7 @@ class ViewController: NSViewController {
             updateStatus(status: "Erase Enclave")
             Graphics.messageBox_dialogue(title: "Backup Enclave", contents: "Please make sure you backed up the contents of the privacy enclave.")
             if delete() == 0 {
-                Graphics.messageBox_dialogue(title: "Process Complete", contents: "Successfully unlocked Privacy Enclave.")
+                Graphics.messageBox_dialogue(title: "Process Complete", contents: "Successfully deleted Privacy Enclave.")
                 Outlet_Spinner.isHidden = true
                 buttonEnabled = true
                 writeLog("The process was successful.", "")
@@ -325,6 +331,31 @@ class ViewController: NSViewController {
                 writeLog("The process was unsuccessful.", "-")
                 Outlet_ActionButton.image = NSImage(imageLiteralResourceName: "ready.png")
             }
+        }else if SelectedOption == 4 {
+            writeLog("Installing Sniper dependency...", "")
+            updateStatus(status: "Install Dependency")
+            if installSniperDepends() {
+                writeLog("The process was successful.", "")
+                updateStatus(status: "Install Sniper")
+                if installSniper() {
+                    writeLog("The process was successful.", "")
+                    Graphics.messageBox_dialogue(title: "Success", contents: "Successfully installed Sniper with its dependency.")
+                }else{
+                    Graphics.messageBox_errorMessage(title: "Process Failed", contents: "Failed installing Sniper. Please check the terminal log.")
+                    Outlet_Spinner.isHidden = true
+                    buttonEnabled = true
+                    updateStatus(status: "Failed")
+                    writeLog("The process was unsuccessful.", "-")
+                    Outlet_ActionButton.image = NSImage(imageLiteralResourceName: "ready.png")
+                }
+            }else{
+                Graphics.messageBox_errorMessage(title: "Process Failed", contents: "Failed installing Sniper dependency. Please check the terminal log.")
+                Outlet_Spinner.isHidden = true
+                buttonEnabled = true
+                updateStatus(status: "Failed")
+                writeLog("The process was unsuccessful.", "-")
+                Outlet_ActionButton.image = NSImage(imageLiteralResourceName: "ready.png")
+            }
         }else{
             Graphics.messageBox_errorMessage(title: "Option not selected", contents: "No such option is available.")
         }
@@ -341,9 +372,29 @@ class ViewController: NSViewController {
         Outlet_Spinner.isHidden = true
         Outlet_LoginPassword.isEnabled = true
         Outlet_EnclavePassword.isEnabled = true
-        Outlet_HiddenuserName.isEnabled = true
-        Outlet_HiddenuserPassword.isEnabled = true
+//        Outlet_HiddenuserName.isEnabled = true
+//        Outlet_HiddenuserPassword.isEnabled = true
         writeLog("Task all complete.", "")
+    }
+    
+    func installSniperDepends() -> Bool {
+        writeLog("Installing tuntap...", "")
+        if System.executeShellScriptWithRootPrivilages(pass: password, "/usr/local/bin/mpkg#--install#" + BundleResources + "/CorePackages/tuntap.mpack") == 0 {
+            writeLog("Tuntap installed.", "")
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func installSniper() -> Bool {
+        writeLog("Installing Sniper...", "")
+        if System.executeShellScriptWithRootPrivilages(pass: password, "/usr/local/bin/mpkg#--install#" + BundleResources + "/CorePackages/sniper-installer.mpack") == 0 {
+            writeLog("Sniper installed.", "")
+            return true
+        }else{
+            return false
+        }
     }
     
     func rsMgr() {
